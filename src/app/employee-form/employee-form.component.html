@@ -1,0 +1,84 @@
+
+<div class="w-100 my-4">
+  <form [formGroup]="employeeForm" (ngSubmit)="submit()" class="col-md-10 mx-auto my-3 border border-1 p-3">
+    <h1 class="text-center">Add Product Details</h1>
+    <div class="row g-3">    
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Enter First Name" formControlName="firstName">
+        <mat-error *ngIf="employeeForm.get('firstName')!.errors !== null && employeeForm.get('firstName')!.errors!['required']">Employee should have a First Name</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Middle Name</mat-label>
+        <input matInput placeholder="Color of Product" formControlName="middleName">
+        <mat-error *ngIf=""></mat-error>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Enter Product's lastName" formControlName="lastName">
+        <mat-error *ngIf="employeeForm.get('lastName')!.errors !== null && employeeForm.get('lastName')!.errors!['required']">Enter Product lastName</mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="row g-3">  
+      <mat-radio-group aria-label="select gender" formControlName="gender" class="col pt-3">
+        <label>Gender: </label>
+        <mat-radio-button class="ms-1" value="male">Male</mat-radio-button>
+        <mat-radio-button class="ms-1" value="female">Female</mat-radio-button>
+        
+        <mat-error *ngIf="employeeForm.get('gender')!.errors !== null && employeeForm.get('gender')!.errors!['required']">Employees Gender is required</mat-error>
+      </mat-radio-group>
+   
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Employee Type</mat-label>
+        <mat-select formControlName="employeeType">
+          <mat-option value="contract">Contract</mat-option>
+          <mat-option value="permanent">Permanent</mat-option>
+        </mat-select>
+        <mat-error *ngIf="employeeForm.get('employeeType')!.errors !== null && employeeForm.get('employeeType')!.errors!['required']">Employee Type is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Contact Number</mat-label>
+        <input type="number" matInput placeholder="contactNumber of Product" formControlName="contactNumber">
+        <mat-error *ngIf="employeeForm.get('contactNumber')!.errors !== null && employeeForm.get('contactNumber')!.errors!['required']">Product's should have a contactNumber</mat-error>
+        <mat-error *ngIf="employeeForm.get('contactNumber')!.errors !== null && employeeForm.get('contactNumber')!.errors!['min']">Minimum contactNumber should be 10</mat-error>
+        <mat-hint></mat-hint>
+      </mat-form-field>    
+      
+    </div>
+
+
+    <div class="row g-3">    
+
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>DOB </mat-label>
+        <input type="date" matInput placeholder="Enter your Date of Birth" formControlName="dateOfBirth">
+        <mat-error *ngIf="employeeForm.get('dateOfBirth')!.errors !== null && employeeForm.get('dateOfBirth')!.errors!['required']">Employees Date Of Birth is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Enter your permanent Address" formControlName="address">
+        <mat-error *ngIf="employeeForm.get('address')!.errors !== null && employeeForm.get('address')!.errors!['required']">Address is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Pincode</mat-label>
+        <input type="number" matInput placeholder="Enter your pincode" formControlName="pincode">
+        <mat-error *ngIf="employeeForm.get('pincode')!.errors !== null && employeeForm.get('pincode')!.errors!['required']">pincode available is required</mat-error>
+        <mat-error *ngIf="employeeForm.get('pincode')!.errors !== null && employeeForm.get('pincode')!.errors!['min']">Minimum 1 pincode is required</mat-error>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+
+
+    <div class="d-flex justify-content-center">
+      <input type="submit" value="Create" class="btn btn-primary m-3"> 
+    </div>
+  </form>
+</div>

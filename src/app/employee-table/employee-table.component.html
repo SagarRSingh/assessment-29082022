@@ -1,0 +1,50 @@
+
+
+
+<div class="d-flex justify-content-center align-items-base m-4">
+  <span class="fs-3" style="text-align: center; font-size: 15px;">Employee List </span><a routerLink="/product/new-product" class="fs-6 ms-3">Create Product </a>
+</div> 
+
+<!-- <button class="btn btn-primary ms-3" routerLink="/dashboard/product/new-product" style="width: fit-content; font-size: 10px; padding:5px;">Create Product +</button> -->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100 text-center text-capitalize">
+
+  <ng-container matColumnDef="Sr No">
+    <th mat-header-cell *matHeaderCellDef class="text-center "> Sr No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+ 
+
+  <ng-container matColumnDef="Full Name">
+    <th mat-header-cell *matHeaderCellDef class="text-center "> Full Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName + element.middleName + element.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="EmailId">
+    <th mat-header-cell *matHeaderCellDef class="text-center "> Email ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.emailId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Contact Number">
+    <th mat-header-cell *matHeaderCellDef class="text-center "> Contact Number </th>
+    <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Date Of Birth">
+    <th mat-header-cell *matHeaderCellDef class="text-center "> Date Of Birth </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="Address">
+    <th mat-header-cell *matHeaderCellDef class="text-center "> Address </th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+
+
+  
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
